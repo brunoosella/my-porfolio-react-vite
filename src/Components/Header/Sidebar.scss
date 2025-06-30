@@ -1,0 +1,44 @@
+#sidebar {
+  width: 100%;
+  max-height: 80px;
+  padding-left: 2rem;
+  display: flex;
+  align-items: center;
+  position: relative;
+  top: 2%;
+  z-index: 1111;
+  overflow: hidden;
+
+  .nav-box {
+    width: 100%;
+    max-width: 100%;
+    margin: 1rem 0;
+  }
+
+  a {
+    color: #fff;
+    font-size: 2rem;
+    font-family: 'Alumni Sans Pinstripe';
+    text-decoration: none;
+    transition: font-size .5s ease;
+
+    &:hover{
+      font-size: 4rem;
+      color: #fff;
+    }
+  }
+
+  #logo {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    background-color: #000;     
+    color: #fff;                
+    border-radius: 50%;          
+    font-weight: 800;           
+    font-family: 'Jost', sans-serif;
+    font-size: 24px;
+  }
+}
