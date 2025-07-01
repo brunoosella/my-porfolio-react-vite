@@ -27,10 +27,10 @@ useEffect(() => {
       {/* <img id="background" src={banner} alt="" /> */}
       <Sidebar setHover={setHover} />
 
+      <h1 key={hover}>{hover.legend.title}</h1>
       <div id="main-content">
-        <h1 key={hover}>{hover.legend.title}</h1>
 
-        {/* <div
+        <div
           id="banner-container"
           onMouseEnter={() => setShowDesc(true)}
           onMouseLeave={() => setShowDesc(false)}
@@ -44,7 +44,7 @@ useEffect(() => {
               </div>
             </div>
           )}
-        </div> */}
+        </div>
       </div>
 
       {/* <div className="btn-container">
