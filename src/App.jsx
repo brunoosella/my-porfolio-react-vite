@@ -5,46 +5,63 @@ import banner from './assets/banner.png'
 
 function App() {
 
-  const [hover, setHover] = useState(banner)
-  const [description, setDecription] = useState(false)
+  const [hover, setHover] = useState({
+    img: banner,
+    legend: { title: '', description: '' }
+  })
+  const [open, setOpen]         = useState(false)
+  const [showDesc, setShowDesc] = useState(false)
 
-  useEffect(() => {
-    setHover(banner)
-  },[])
+useEffect(() => {
+
+  document.querySelector('#main h1')?.classList.remove('animate');
+  setTimeout(() => {
+    document.querySelector('#main h1')?.classList.add('animate');
+  }, 100);
+
+}, [hover]);
+
 
   return (
-    <div id="main">
-      <img id="background" src={banner} alt="" />
+    <div id="main" style={{backgroundColor: hover?.style?.bg}}>
+      {/* <img id="background" src={banner} alt="" /> */}
       <Sidebar setHover={setHover} />
-      
-      <div 
-        id="banner-container"
-        onMouseEnter={() => setDecription(true)}
-        onMouseLeave={() => setDecription(false)}
-      >
-        {hover && (
-          <img
-            key={hover}
-            src={hover}
-            className="hover-img"
-            alt="hover"
-          />
-        )}
-        {
-          description && 
-          <div className="hover-description">
-            <div className="text">
-              <h1>I am...</h1>
-              <p>
-                Semi Senior Front End Developer
-                <br />
-                Team Leader 
-                <br />
-                & an enthusiastic nerdy guy </p>
+
+      <div id="main-content">
+        <h1 key={hover}>{hover.legend.title}</h1>
+
+        {/* <div
+          id="banner-container"
+          onMouseEnter={() => setShowDesc(true)}
+          onMouseLeave={() => setShowDesc(false)}
+        >
+          <img key={hover.img} src={hover.img} className="hover-img" alt="hover" />
+          {showDesc && (
+            <div className="hover-description">
+              <div className="text">
+                <h1>{hover.legend.title}</h1>
+                <p>{hover.legend.description}</p>
+              </div>
             </div>
-          </div>
-        }
+          )}
+        </div> */}
       </div>
+
+      {/* <div className="btn-container">
+        <button id='dropdown-btn' onClick={() => setOpen(!open)}>Download CV</button>
+        {
+          open &&
+          <div className="dropdown">
+            <button>
+              Download PDF
+            </button>
+            <button>
+              Linkedin
+            </button>
+          </div>
+          
+        }
+      </div> */}
     </div>
   )
 }

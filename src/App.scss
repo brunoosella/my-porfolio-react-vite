@@ -5,13 +5,33 @@
 
 #main {
   position: relative;
-  width: 100%;
   max-width: 100%;
   height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: #ff6803;
+  background-color: #1d0413;
+  transition: all ease-in-out 1s;
   overflow: hidden;
+
+  h1 {
+    position: absolute;
+    top: 10%;
+    left: 0;
+    margin: 0;
+    z-index: 0;
+    font-size: 15rem;
+    white-space: nowrap;
+    opacity: 0;
+    transform: translateX(100%);
+    transition: transform 0.5s ease, opacity 0.5s ease;
+
+    &.animate {
+      opacity: 0.5;
+      transform: translateX(0%);
+    }
+  }
 
   #background {
     position: absolute;
@@ -20,15 +40,35 @@
     overflow: hidden;
     top: 0;
     left: 0;
-    filter: blur(5px);
-    opacity: .1;
+    filter: blur(10px);
+    opacity: .5;
+  }
+
+  #main-legend {
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    font-family: 'Poiret One';
+    z-index: 111;
+
+    p {
+      font-size: 2rem;
+    }
+
+    &.hide {
+      animation: slideLegend .5s ease forwards;
+    }
   }
 
   #banner-container {
     position: relative;
-    top: 20%;
-    width: 600px;
-    max-width: 600px;
+    cursor: pointer;
+    width: 25%;
+    max-width: 1000px;
     height: 500px;
     max-height: 500px;
     overflow: hidden;
@@ -43,6 +83,8 @@
     transform: translateX(100%);
     animation: slideIn 1s ease forwards;
     filter: brightness(60%);
+      object-fit: cover;
+
   }
 
   .hover-description {
@@ -74,13 +116,72 @@
     }
   }
 
+  .btn-container {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    button {
+      width: 150px;
+      max-width: 150px;
+      min-width: 140px ;
+      height: 40px;
+    }
+
+    #dropdown-btn {
+      margin-top: 1rem;
+      position: relative;
+      right: 0;
+      background-color: transparent;
+      border: 1px solid #fff;
+    }
+
+    .dropdown {
+      position: absolute;
+      top: 0;
+      display: flex;
+      flex-direction: column;
+      height: 0;
+      opacity: 0;
+      animation: slideDown .5s ease forwards;
+
+      button {
+        border-radius: 0;
+        background-color: transparent;
+        border: none;
+
+        &:hover{
+          background-color: #888;
+        }
+      }
+    }
+
+  }
+
   @keyframes slideIn {
     to {
       opacity: 1;
       transform: translateX(0%);
     }
   }
-  
+
+  @keyframes slideDown {
+    to {
+      opacity: 1;
+      height: auto;
+      top: 100%;
+      transform: translateY(0%);
+    }
+  }
+
+  @keyframes slideLegend {
+    to {
+      opacity: 0;
+      transform: translateX(100%);
+    }
+  }
 }
 
 .logo {
