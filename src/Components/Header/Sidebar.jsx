@@ -8,7 +8,7 @@ export default function Sidebar({ setHover }) {
   const profileContent = {
     img: profile,
     style:{ 
-      bg:  '#ffd903'
+      bg:  '#5f2601'
     },
     code: 'profile',
     legend: {
@@ -32,7 +32,7 @@ export default function Sidebar({ setHover }) {
   const thinkingContent = {
     img: thinking,
     style: {
-      bg: '#ff6803'
+      bg: '#011f5f'
     },
     code: 'thinking',
     legend: {
@@ -44,7 +44,7 @@ export default function Sidebar({ setHover }) {
   const experienceContent = {
     img: thinking,
     style: {
-      bg: '#ff6803'
+      bg: '#000000'
     },
     code: 'thinking',
     legend: {

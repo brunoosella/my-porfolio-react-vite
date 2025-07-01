@@ -24,7 +24,7 @@ useEffect(() => {
 
   return (
     <div id="main" style={{backgroundColor: hover?.style?.bg}}>
-      {/* <img id="background" src={banner} alt="" /> */}
+      <img id="background" src={banner} alt="" />
       <Sidebar setHover={setHover} />
 
       <h1 key={hover}>{hover.legend.title}</h1>
